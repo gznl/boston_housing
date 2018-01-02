@@ -11839,8 +11839,10 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/gznl/anaconda3/lib/python3.6/site-packages/sklearn/cross_validation.py:41: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+<pre>/home/gzhao/anaconda3/lib/python3.6/site-packages/sklearn/cross_validation.py:41: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
   &#34;This module will be removed in 0.20.&#34;, DeprecationWarning)
+/home/gzhao/anaconda3/lib/python3.6/site-packages/sklearn/learning_curve.py:22: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the functions are moved. This module will be removed in 0.20
+  DeprecationWarning)
 </pre>
 </div>
 </div>
@@ -11852,18 +11854,6 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Boston housing dataset has 489 data points with 4 variables each.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/gznl/anaconda3/lib/python3.6/site-packages/sklearn/learning_curve.py:22: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the functions are moved. This module will be removed in 0.20
-  DeprecationWarning)
 </pre>
 </div>
 </div>
@@ -11945,19 +11935,19 @@ Name: MEDV, dtype: float64</pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="mf">1.050000e+05</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="mf">1.024800e+06</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="mf">4.543429e+05</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Median price of the data</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="mf">4.389000e+05</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Standard deviation of prices of the data</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="mf">1.653403e+05</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># Show the calculated statistics</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -11986,9 +11976,9 @@ Name: MEDV, dtype: float64</pre>
 
 Minimum price: $105,000.00
 Maximum price: $1,024,800.00
-Mean price: $454,342.90
+Mean price: $454,342.94
 Median price $438,900.00
-Standard deviation of prices: $165,340.30
+Standard deviation of prices: $165,171.13
 </pre>
 </div>
 </div>
@@ -12129,9 +12119,9 @@ Standard deviation of prices: $165,340.30
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li>yes, more rooms higher values</li>
-<li>lower lstat higher values</li>
-<li>lower ptratio higher values</li>
+<li>yes, more rooms normally means bigger house, the mean value of house with 7 rooms is higher than the house with 6 rooms</li>
+<li>lower lstat means more residence with high incomes, which noramlly indicate higher house values in that neigbhor, it can be seen, the average house value with 15% lstat is higher than that with 20% lstat. </li>
+<li>lower ptratio means more teachers in school, which indicate better school quality, schools are better financially supported. it can be seen the house value with 15% ptratio is higher than that with 20% ptratio</li>
 </ul>
 
 </div>
@@ -12164,7 +12154,7 @@ Standard deviation of prices: $165,340.30
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Import &#39;r2_score&#39;</span>
@@ -12305,7 +12295,7 @@ Standard deviation of prices: $165,340.30
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Import &#39;train_test_split&#39;</span>
@@ -13454,7 +13444,7 @@ Think about the pros and cons of adding more training points based on if the tra
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li>graph top left, maximum depth=1, underfitting</li>
+<li>graph top left, maximum depth=1, both training and testing converged at a low score, high error, so it is underfitting</li>
 <li>more training points less accuracy, and lower score for training curve. testing curve has higher score with more training points and converges with training score at certain training points.</li>
 <li>no, it has already converged at certain training points around 200.</li>
 </ul>
@@ -13926,8 +13916,8 @@ Z4wxJmhY0jPGGBM0/h/P4rAvydDK2QAAAABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li>maximum depth=1, suffer from high bias, underfitting</li>
-<li>maximum depth=10, suffer from high variance, overfitting, tend to only perform better in training set, for testing set, it is performing worse.</li>
+<li>maximum depth=1, suffer from high bias, low score (high error)for training set</li>
+<li>maximum depth=10, suffer from high variance, overfitting, tend to only perform better in training set, for testing set, it is performing worse. the difference of training and testing is getting bigger</li>
 </ul>
 
 </div>
@@ -13988,8 +13978,8 @@ Z4wxJmhY0jPGGBM0/h/P4rAvydDK2QAAAABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li>grid search is a technique to fine tuning model parameters</li>
-<li>first define the search range for certain model parameter, then find the model parameter which gives the best score.</li>
+<li>grid search is a technique to fine tuning model hyperparameters</li>
+<li>search the hyper-parameter space for the best cross validation score by considering all hyper-parameter combinations. score function normally accuracy score for classification problems, r2_score for regression problems.</li>
 </ul>
 
 </div>
@@ -14017,7 +14007,7 @@ Z4wxJmhY0jPGGBM0/h/P4rAvydDK2QAAAABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li>split the dataset into k sets with equal length, each set used as test set 1 time, and training set k-1 times. </li>
+<li>split the dataset into k sets with equal length, each set used as validation set 1 time, and training set k-1 times. running the model for k times, and calculate the average accuracy score in the end as the final score. </li>
 <li>reduce the risk of model performing differently when having different split.</li>
 </ul>
 
@@ -14055,7 +14045,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Import &#39;make_scorer&#39;, &#39;DecisionTreeRegressor&#39;, and &#39;GridSearchCV&#39;</span>
@@ -14078,7 +14068,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
     <span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span> <span class="p">}</span>
 
     <span class="c1"># TODO: Transform &#39;performance_metric&#39; into a scoring function using &#39;make_scorer&#39; </span>
-    <span class="n">scoring_fnc</span> <span class="o">=</span> <span class="n">make_scorer</span>
+    <span class="n">scoring_fnc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">performance_metric</span><span class="p">)</span>
 
     <span class="c1"># TODO: Create the grid search cv object --&gt; GridSearchCV()</span>
     <span class="c1"># Make sure to include the right parameters in the object:</span>
@@ -14120,7 +14110,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Fit the training data to the model using grid search</span>
@@ -14209,7 +14199,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Produce a matrix for client data</span>
@@ -14247,6 +14237,161 @@ Predicted selling price for Client 3&#39;s home: $931,636.36
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prices</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>count    4.890000e+02
+mean     4.543429e+05
+std      1.653403e+05
+min      1.050000e+05
+25%      3.507000e+05
+50%      4.389000e+05
+75%      5.187000e+05
+max      1.024800e+06
+Name: MEDV, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">price</span> <span class="ow">in</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">client_data</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXQAAAD8CAYAAABn919SAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAELFJREFUeJzt3W+sJXV9x/H3pyD+QS27ciFb1u1CQmh5In9uCJTGWBD/
+YYQH0ECMrhazSZsarU10qY9M+mBtGrWmjboR7aax/CliIaDSzYppmjTorqCCC13ALW5Z2UVFrSZV
+9NsH57dwXe7dc+695+zZ/d33KzmZmd/M3PmeObOfnfs7M3NTVUiSjn2/Ne0CJEnjYaBLUicMdEnq
+hIEuSZ0w0CWpEwa6JHXCQJekThjoktQJA12SOnH8kdzYySefXOvXrz+Smzzydu58ftv55x/5Oiah
+5/emvh3jx+7OnTufqqqZYcvlSN76Pzs7Wzt27Dhi25uK5PltvTxeoef3pr4d48dukp1VNTtsObtc
+JKkTBrokdcJAl6ROGOiS1AkDXZI6YaBLUicMdEnqhIEuSZ0w0CWpE0f01n8dG9Zvumve9j0jLrtn
+8+XjLUjSSDxDl6ROGOiS1AkDXZI6YaBLUicMdEnqhIEuSZ0w0CWpE16HrqPKQtfAj8Lr37XSeYYu
+SZ0w0CWpEwa6JHViaKAnOSvJ/XNeP0ny3iSrk2xLsrsNVx2JgiVJ8xsa6FX1cFWdU1XnAOcDPwe+
+AGwCtlfVmcD2Ni1JmpLFdrlcCjxaVf8NXAFsbe1bgSvHWZgkaXEWG+jXADe28VOrah9AG54yzsIk
+SYsz8nXoSU4A3gJcv5gNJNkIbARYt27doorTsWk515JLWrrFnKG/EfhGVT3Zpp9MsgagDffPt1JV
+bamq2aqanZmZWV61kqQFLSbQr+W57haAO4ANbXwDcPu4ipIkLd5IgZ7kJcBlwG1zmjcDlyXZ3eZt
+Hn95kqRRjdSHXlU/B15xSNsPGFz1Ikk6CninqCR1wkCXpE4Y6JLUCQNdkjphoEtSJwx0SeqEgS5J
+nTDQJakTBrokdcJAl6ROGOiS1AkDXZI6YaBLUicMdEnqhIEuSZ0w0CWpEwa6JHXCQJekThjoktSJ
+Uf9I9ElJbk3yUJJdSS5KsjrJtiS723DVpIuVJC1s1DP0vwO+XFW/B7wK2AVsArZX1ZnA9jYtSZqS
+oYGe5OXAq4EbAKrqF1X1NHAFsLUtthW4clJFSpKGG+UM/QzgAPDZJPcl+XSSE4FTq2ofQBueMt/K
+STYm2ZFkx4EDB8ZWuCTpN40S6McD5wGfqKpzgZ+xiO6VqtpSVbNVNTszM7PEMiVJw4wS6HuBvVV1
+b5u+lUHAP5lkDUAb7p9MiZKkUQwN9Kr6PvC9JGe1pkuB7wB3ABta2wbg9olUKEkayfEjLvdu4HNJ
+TgAeA97J4D+DW5JcBzwOXD2ZEiVJoxgp0KvqfmB2nlmXjrccSdJSeaeoJHXCQJekThjoktQJA12S
+OmGgS1InDHRJ6oSBLkmdMNAlqRMGuiR1wkCXpE4Y6JLUCQNdkjphoEtSJwx0SeqEgS5JnTDQJakT
+BrokdcJAl6ROjPQn6JLsAX4K/Ap4pqpmk6wGbgbWA3uAP66qH02mTEnSMIs5Q/+jqjqnqg7+bdFN
+wPaqOhPY3qYlSVOynC6XK4CtbXwrcOXyy5EkLdWogV7AvyXZmWRjazu1qvYBtOEpkyhQkjSakfrQ
+gYur6okkpwDbkjw06gbafwAbAdatW7eEEiVJoxjpDL2qnmjD/cAXgAuAJ5OsAWjD/Qusu6WqZqtq
+dmZmZjxVS5KeZ2igJzkxycsOjgOvAx4A7gA2tMU2ALdPqkhJ0nCjdLmcCnwhycHl/7mqvpzk68At
+Sa4DHgeunlyZkqRhhgZ6VT0GvGqe9h8Al06iKEnS4nmnqCR1wkCXpE4Y6JLUCQNdkjphoEtSJwx0
+SeqEgS5JnTDQJakTBrokdcJAl6ROGOiS1AkDXZI6YaBLUicMdEnqhIEuSZ0w0CWpEwa6JHXCQJek
+Towc6EmOS3Jfkjvb9OlJ7k2yO8nNSU6YXJmSpGFG+SPRB70H2AW8vE1/GPhoVd2U5JPAdcAnxlzf
+irZ+011LXnfP5svHWImkY8FIZ+hJ1gKXA59u0wEuAW5ti2wFrpxEgZKk0Yza5fIx4P3Ar9v0K4Cn
+q+qZNr0XOG3MtUmSFmFol0uSNwP7q2pnktccbJ5n0Vpg/Y3ARoB169YtsUwt1nK6ayQdm0Y5Q78Y
+eEuSPcBNDLpaPgaclOTgfwhrgSfmW7mqtlTVbFXNzszMjKFkSdJ8hgZ6VV1fVWuraj1wDfCVqnor
+cA9wVVtsA3D7xKqUJA21nOvQPwC8L8kjDPrUbxhPSZKkpVjMZYtU1VeBr7bxx4ALxl+SJGkpvFNU
+kjphoEtSJwx0SeqEgS5JnTDQJakTBrokdcJAl6ROGOiS1AkDXZI6YaBLUicMdEnqhIEuSZ0w0CWp
+Ewa6JHXCQJekThjoktQJA12SOrGov1ikpVm/6a5plyBpBRh6hp7kRUm+luSbSR5M8qHWfnqSe5Ps
+TnJzkhMmX64kaSGjdLn8H3BJVb0KOAd4Q5ILgQ8DH62qM4EfAddNrkxJ0jBDA70G/rdNvqC9CrgE
+uLW1bwWunEiFkqSRjPSlaJLjktwP7Ae2AY8CT1fVM22RvcBpkylRkjSKkQK9qn5VVecAa4ELgN+f
+b7H51k2yMcmOJDsOHDiw9EolSYe1qMsWq+pp4KvAhcBJSQ5eJbMWeGKBdbZU1WxVzc7MzCynVknS
+YYxylctMkpPa+IuB1wK7gHuAq9piG4DbJ1WkJGm4Ua5DXwNsTXIcg/8AbqmqO5N8B7gpyV8D9wE3
+TLBOSdIQQwO9qr4FnDtP+2MM+tMlSUcBb/2XpE4Y6JLUCQNdkjphoEtSJwx0SeqEgS5JnTDQJakT
+BrokdcJAl6ROGOiS1AkDXZI6YaBLUicMdEnqhIEuSZ0Y5Xno0jFh/aa7lrzuns2Xj7ESaTo8Q5ek
+ThjoktQJA12SOmGgS1InhgZ6klcmuSfJriQPJnlPa1+dZFuS3W24avLlSpIWMspVLs8Af1lV30jy
+MmBnkm3AO4DtVbU5ySZgE/CByZUqTY5XyKgHQ8/Qq2pfVX2jjf8U2AWcBlwBbG2LbQWunFSRkqTh
+FnUdepL1wLnAvcCpVbUPBqGf5JQF1tkIbARYt27dcmqVuuRvBxqXkb8UTfJS4PPAe6vqJ6OuV1Vb
+qmq2qmZnZmaWUqMkaQQjBXqSFzAI889V1W2t+ckka9r8NcD+yZQoSRrFKFe5BLgB2FVVH5kz6w5g
+QxvfANw+/vIkSaMapQ/9YuBtwLeT3N/a/grYDNyS5DrgceDqyZQoSRrF0ECvqv8AssDsS8dbjiRp
+qXzaorRMy7lKRRonb/2XpE4Y6JLUCQNdkjphoEtSJ/xSdIjFfuG1ZzJlSNJQnqFLUicMdEnqxIro
+cvE6YUkrgWfoktQJA12SOmGgS1InDHRJ6oSBLkmdMNAlqRMGuiR1wkCXpE4Y6JLUiVH+SPRnkuxP
+8sCcttVJtiXZ3YarJlumJGmYUc7Q/xF4wyFtm4DtVXUmsL1NS5KmaGigV9W/Az88pPkKYGsb3wpc
+Oea6JEmLtNQ+9FOrah9AG54yvpIkSUsx8actJtkIbARYt27dpDcnrSjTepLons2XT2W7OrylnqE/
+mWQNQBvuX2jBqtpSVbNVNTszM7PEzUmShllqoN8BbGjjG4Dbx1OOJGmpRrls8UbgP4GzkuxNch2w
+GbgsyW7gsjYtSZqioX3oVXXtArMuHXMtkqRl8E5RSeqEgS5JnTDQJakTBrokdcJAl6ROTPxO0XGZ
+1h1xko4uS8mCPeMv46jkGbokdcJAl6ROGOiS1AkDXZI6YaBLUieOmatcJGmalnOl3ZF6frxn6JLU
+CQNdkjphl4ukRVvujX5Hw5+w6/FmRc/QJakTnqFLOuJ6PDs+GniGLkmdWFagJ3lDkoeTPJJk07iK
+kiQt3pIDPclxwD8AbwTOBq5Ncva4CpMkLc5yztAvAB6pqseq6hfATcAV4ylLkrRYywn004DvzZne
+29okSVOQqlraisnVwOur6l1t+m3ABVX17kOW2whsbJNnAQ8vvdypORl4atpFHCXcFwPuhwH3w8Ck
+98PvVtXMsIWWc9niXuCVc6bXAk8culBVbQG2LGM7U5dkR1XNTruOo4H7YsD9MOB+GDha9sNyuly+
+DpyZ5PQkJwDXAHeMpyxJ0mIt+Qy9qp5J8ufA3cBxwGeq6sGxVSZJWpRl3SlaVV8EvjimWo5mx3SX
+0Zi5LwbcDwPuh4GjYj8s+UtRSdLRxVv/JakTXQd6klcmuSfJriQPJnlPa1+dZFuS3W24qrUnycfb
+owy+leS8OT9rQ1t+d5INc9rPT/Ltts7Hk+Rw25imJMcluS/JnW369CT3thpvbl9uk+SFbfqRNn/9
+nJ9xfWt/OMnr57TP+xiIhbYxTUlOSnJrkofasXHRSjwmkvxF+3fxQJIbk7xoJRwTST6TZH+SB+a0
+Te3zP9w2Fq2qun0Ba4Dz2vjLgP9i8JiCvwE2tfZNwIfb+JuALwEBLgTube2rgcfacFUbX9XmfQ24
+qK3zJeCNrX3ebUx5f7wP+GfgzjZ9C3BNG/8k8Kdt/M+AT7bxa4Cb2/jZwDeBFwKnA48y+EL8uDZ+
+BnBCW+bsw21jyvthK/CuNn4CcNJKOyYY3AT4XeDFcz6nd6yEYwJ4NXAe8MCctql9/gttY0nvbdr/
+uI7wB3k7cBmDm5vWtLY1wMNt/FPAtXOWf7jNvxb41Jz2T7W2NcBDc9qfXW6hbUzxva8FtgOXAHe2
+g+cp4Pg2/yLg7jZ+N3BRGz++LRfgeuD6OT/z7rbes+u29uvba8FtTHE/vJxBkOWQ9hV1TPDcnd6r
+22d8J/D6lXJMAOv5zUCf2ue/0DaW8r667nKZq/2KeC5wL3BqVe0DaMNT2mILPc7gcO1752nnMNuY
+lo8B7wd+3aZfATxdVc+06bm1P/t+2/wft+UXu38Ot41pOQM4AHw2g+6nTyc5kRV2TFTV/wB/CzwO
+7GPwGe9kZR4TMN3Pf2yPUVkRgZ7kpcDngfdW1U8Ot+g8bbWE9qNKkjcD+6tq59zmeRatIfN62D/H
+M/h1+xNVdS7wMwa//i6kh/f8PK3/9goG3SS/A5zI4Mmph1oJx8ThHIn3N7Z90n2gJ3kBgzD/XFXd
+1pqfTLKmzV8D7G/tCz3O4HDta+dpP9w2puFi4C1J9jB4KuYlDM7YT0py8F6EubU/+37b/N8Gfsji
+989Th9nGtOwF9lbVvW36VgYBv9KOidcC362qA1X1S+A24A9YmccETPfzH+kxKqPoOtDbt8s3ALuq
+6iNzZt0BHPxWegODvvWD7W9v3zpfCPy4/Wp0N/C6JKvamc3rGPT77QN+muTCtq23H/Kz5tvGEVdV
+11fV2qpaz+ALra9U1VuBe4Cr2mKH7oeDtV/Vlq/Wfk274uF04EwGXwDN+xiIts5C25iKqvo+8L0k
+Z7WmS4HvsMKOCQZdLRcmeUmr8+B+WHHHRDPNz3+hbSzekf4y4ki+gD9k8KvLt4D72+tNDPrxtgO7
+23B1Wz4M/mjHo8C3gdk5P+tPgEfa651z2meBB9o6f89zN2vNu41pv4DX8NxVLmcw+Mf3CPAvwAtb
++4va9CNt/hlz1v9ge68P0769b+1vYnAV0aPAB+e0z7uNKe+Dc4Ad7bj4VwZXKay4YwL4EPBQq/Wf
+GFyp0v0xAdzI4HuDXzI4O75ump//4bax2Jd3ikpSJ7rucpGklcRAl6ROGOiS1AkDXZI6YaBLUicM
+dEnqhIEuSZ0w0CWpE/8PfnZjwt2589AAAAAASUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -14256,7 +14401,7 @@ Predicted selling price for Client 3&#39;s home: $931,636.36
 <li>Client 1 home: 403,025.00</li>
 <li>Client 2 home: 237,478.72</li>
 <li>Client 3 home: 931,636.36</li>
-<li>checked with max. min. MEDV, seems reasonable </li>
+<li>checked with the above histotram, client 1 is in the middle, close to the mean value, client 3 is in the top 30%, slightly below the maximum value, client 2 is in the lowest 30%, if you check with the features, client 3 has most room numbers, and lowest lstat and ptratio, client 2 has the least room numbers and highest ptratio and lstats. therefore the results seems reasonable.</li>
 </ul>
 
 </div>
